@@ -1,0 +1,10 @@
+.error-alert {
+    color: $primary-color;
+    display: grid;
+    grid-column: span 3;
+    justify-items: center;
+    background-color: #d87d7d4d;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    align-self: center;
+}

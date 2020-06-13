@@ -15,18 +15,10 @@ export default {
 };
 </script>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-#app {
-font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #fff;
-  margin-top: 60px;
-}
-
+<style lang="scss">
 body {
-  background-color: #ee6e73;
+  background-color: $primary-color;
+  font-family: $font-stack;
+  color: $initial-color;
 }
 </style>

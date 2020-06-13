@@ -3,8 +3,8 @@
     <header>
       <h1>TO-DO LIST</h1>
     </header>
-    <main class="main">
-      <div class="form">
+    <main>
+      <div class="box form">
         <div>
           <input
             placeholder="activity"
@@ -25,8 +25,8 @@
         </div>
       </div>
 
-      <div class="container-table-activities">
-        <div v-if="isEmpty" class="empty-alert">
+      <div class="box container-table-activities">
+        <div v-if="isEmpty" class="error-alert">
           <span>No activities yet</span>
         </div>
         <table v-else class="table-activities">
@@ -51,12 +51,12 @@
         </table>
       </div>
 
-      <div class="information">
-        <div class="box-information">
+      <div class="box information">
+        <div class="items-information">
           <span>completed:</span>
           <span>{{completed}}</span>
         </div>
-        <div class="box-information">
+        <div class="items-information">
           <span>total:</span>
           <span>{{total}}</span>
         </div>
@@ -125,94 +125,49 @@ export default {
 };
 </script>
 
-<style scoped>
-.main {
+<style lang="scss" scoped>
+@import '../scss/box.scss';
+@import '../scss/error_alert.scss';
+@import '../scss/button.scss';
+@import '../scss/input.scss';
+
+header{
+  text-align: center;
+}
+
+main {
   display: grid;
   grid-template-columns: 0.3fr;
   justify-content: center;
-  align-content: center;
   gap: 1rem;
 }
 
 .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #fff;
-  padding: 1rem;
-  gap: 0.5rem;
-  border-radius: 0.2rem;
-}
-
-.input-text {
-  line-height: 1.5rem;
-  border: 0;
-  border-bottom: 2px solid #9b9b9b;
-}
-
-.button {
-  border: 0;
-  padding: 0.5rem;
-  background-color: #ee6e73;
-  color: #fff;
-  border-radius: 0.2rem;
-}
-
-.button:hover {
-  cursor: pointer;
-  background-color: #ff9ea1;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .container-table-activities {
-  background-color: #fff;
-  padding: 1rem;
   min-height: 6rem;
-  display: grid;
-  border-radius: 0.2rem;
-}
-
-.table-activities {
-  border-collapse: collapse;
+  .table-activities {
+    border-collapse: collapse;
+  }
 }
 
 .information {
-  background-color: #fff;
-  color: #9b9b9b;
+  color: $second-color;
   font-weight: bold;
-  display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-}
-
-.box-information {
-  justify-content: center;
-  display: grid;
-  grid-row: auto;
-}
-
-.error-alert {
-  color: rgb(216, 125, 125);
-  display: grid;
-  grid-column: span 3;
   justify-items: center;
-  background-color: rgba(216, 125, 125, 0.329);
-  padding: 0.5rem;
-  border-radius: 0.2rem;
-}
-
-.empty-alert {
-  color: rgb(216, 125, 125);
-  display: grid;
-  grid-column: span 3;
-  justify-items: center;
-  align-self: center;
-  background-color: rgba(216, 125, 125, 0.329);
-  padding: 0.5rem;
-  border-radius: 0.2rem;
+  .items-information {
+    justify-items: center;
+    display: grid;
+    grid-row: auto;
+    gap: 0.2rem;
+  }
 }
 
 .pendent {
-  color: rgb(216, 125, 125);
+  color: $primary-color;
   font-weight: bold;
 }
 
